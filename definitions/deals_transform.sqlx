@@ -13,7 +13,7 @@ SELECT
   deal.stage,
   deal.closing_date,
   deal.overall_sales_duration sales_duration,
-  deal.custom_probable_volume probable_volume,
+  deal.custom_potential_gci commission,
   deal.custom_personal_transaction personal_transaction,
   deal.custom_sale_price sale_price,
   deal.custom_representing representing,
