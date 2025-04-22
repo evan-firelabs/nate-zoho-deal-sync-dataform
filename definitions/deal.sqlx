@@ -1,0 +1,6 @@
+config {
+    type: "declaration",
+    database: "firelabs-427622",
+    schema: "nate_zoho_crm",
+    name: "deal"
+}

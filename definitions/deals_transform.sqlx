@@ -1,0 +1,25 @@
+config {
+    type: "table",
+    database: "firelabs-427622",
+    schema: "nate_zoho_crm_validated",
+    name: "nate_deals_validated"
+}
+
+SELECT
+  deal.id zoho_deal_id,
+  contact.highlevel_contact_id,
+  deal.custom_client_name_primary client_name,
+  deal.custom_client_name_primary||' - '||coalesce(deal.custom_address,'TBD') deal_name,
+  deal.stage,
+  deal.closing_date,
+  deal.overall_sales_duration sales_duration,
+  deal.custom_probable_volume probable_volume,
+  deal.custom_personal_transaction personal_transaction,
+  deal.custom_sale_price sale_price,
+  deal.custom_representing representing,
+  deal.custom_address address,
+  deal.custom_ownership_type ownership_type,
+  deal.custom_property_type property_type
+FROM ${ref('deal')} deal
+INNER JOIN ${ref('nate_hl_contacts')} contact
+  ON LOWER(deal.custom_client_name_primary) = LOWER(contact.first_name||' '||contact.last_name)
