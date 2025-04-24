@@ -1,0 +1,17 @@
+config {
+    type: "table",
+    database: "firelabs-427622",
+    schema: "nate_zoho_crm_validated",
+    name: "nate_task_validated"
+}
+
+SELECT DISTINCT
+    contact.highlevel_contact_id contact_id,
+    task.subject task_title,
+    task.description task_description,
+    task.due_date due_date,
+    task.status status,
+    task.who_name task_contact,
+FROM ${ref('task')}  task
+INNER JOIN ${ref('nate_hl_contacts')} contact
+    on task.who_name = contact.first_name||' '||contact.last_name
