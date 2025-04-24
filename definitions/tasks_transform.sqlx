@@ -2,7 +2,7 @@ config {
     type: "table",
     database: "firelabs-427622",
     schema: "nate_zoho_crm_validated",
-    name: "nate_task_validated"
+    name: "nate_tasks_validated"
 }
 
 SELECT DISTINCT
